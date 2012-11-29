@@ -1,0 +1,15 @@
+
+git svn clone --trunk=trunk/yarp2 \
+              --branches=branches \
+              --prefix=origin/ \
+              --authors-file=authors.txt \
+              https://yarp0.svn.sourceforge.net/svnroot/yarp0 \
+              yarp2
+
+(wait)
+
+
+
+echo $(git svn find-rev r7841) $(git rev-parse $(git svn find-rev r7841)^) $(git rev-parse origin/yarp2-remake-cmake) >> .git/info/grafts
+echo $(git rev-parse origin/yarp2-remake-cmake~31) $(git rev-parse origin/yarp2-remake-cmake~32) $(git svn find-rev r7779) >> .git/info/grafts
+
